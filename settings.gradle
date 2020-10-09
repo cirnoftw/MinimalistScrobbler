@@ -1,0 +1,6 @@
+include ':app:resources'
+include ':app:device'
+include ':app:domain'
+include ':app:data'
+include ':app'
+rootProject.name = "Minimalist Scrobbler"
