@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">Minimalist Scrobbler</string>
-
-    <string name="auth_not_logged_in">Not logged in</string>
-    <string name="auth_logged_in" formatted="true">Logged in as: %1$s</string>
-</resources>

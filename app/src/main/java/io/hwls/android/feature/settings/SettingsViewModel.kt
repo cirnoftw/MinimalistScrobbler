@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import io.hwls.android.common.MessageBus
 import io.hwls.domain.model.LoginState
 import io.hwls.domain.usecase.AuthUseCase
+import io.hwls.domain.usecase.LogoutUseCase
 import io.hwls.domain.usecase.ObserveLoginStateUseCase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
@@ -17,6 +18,7 @@ import kotlinx.coroutines.launch
 class SettingsViewModel(
     private val authUseCase: AuthUseCase,
     private val observeLoginStateUseCase: ObserveLoginStateUseCase,
+    private val logoutUseCase: LogoutUseCase,
     private val messageBus: MessageBus
 ) : ViewModel() {
     val loginState: LiveData<LoginState?>
@@ -30,6 +32,12 @@ class SettingsViewModel(
             } catch (e: Throwable) {
                 e.message?.let { messageBus.sendMessage(it) }
             }
+        }
+    }
+
+    fun logout() {
+        viewModelScope.launch {
+            logoutUseCase.execute()
         }
     }
 }

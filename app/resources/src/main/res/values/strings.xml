@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Minimalist Scrobbler</string>
+
+    <string name="title_main">@string/app_name</string>
+
+    <string name="auth_credentials_header">User credentials</string>
+    <string name="auth_not_logged_in">Not logged in</string>
+    <string name="auth_logged_in" formatted="true">Logged in as: %1$s</string>
+    <string name="auth_hint_username">Last.fm username</string>
+    <string name="auth_hint_password">Password</string>
+    <string name="btn_login">Log in</string>
+    <string name="btn_logout">Log out</string>
+
+    <string name="validator_error_empty">Please fill in required fields</string>
+</resources>

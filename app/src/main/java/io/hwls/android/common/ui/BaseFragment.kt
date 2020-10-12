@@ -22,6 +22,7 @@ abstract class BaseFragment : Fragment() {
     ): View = inflater.inflate(layoutRes, container, false)
 
     open fun onBackPressed() {
+        router?.exit()
     }
 
     private fun getParent(fragment: Fragment): FlowFragment? {

@@ -10,6 +10,10 @@ interface SingleUseCase<R, T> {
     suspend fun execute(params: R): T
 }
 
-interface CompletableUseCase<R> {
+interface CompletableUseCase {
+    suspend fun execute()
+}
+
+interface CompletableParamsUseCase<R> {
     suspend fun execute(params: R)
 }

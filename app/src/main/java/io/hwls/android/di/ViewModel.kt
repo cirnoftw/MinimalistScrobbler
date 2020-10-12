@@ -1,5 +1,6 @@
 package io.hwls.android.di
 
+import io.hwls.android.common.navigation.CommonNavigationViewModel
 import io.hwls.android.feature.list.ScrobblesListViewModel
 import io.hwls.android.feature.settings.SettingsViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -10,6 +11,8 @@ import org.koin.dsl.module
 @FlowPreview
 @ExperimentalCoroutinesApi
 internal val viewModels = module {
+    viewModel { CommonNavigationViewModel(get()) }
+
     viewModel { ScrobblesListViewModel() }
-    viewModel { SettingsViewModel(get(), get(), get()) }
+    viewModel { SettingsViewModel(get(), get(), get(), get()) }
 }

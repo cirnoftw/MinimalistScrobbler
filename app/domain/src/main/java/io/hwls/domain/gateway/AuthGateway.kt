@@ -7,4 +7,6 @@ interface AuthGateway {
     fun observeLoginState(): Flow<LoginState?>
 
     suspend fun auth(login: String, password: String)
+
+    suspend fun logout()
 }

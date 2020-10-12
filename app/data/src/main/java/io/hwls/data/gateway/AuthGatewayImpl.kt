@@ -38,7 +38,12 @@ class AuthGatewayImpl(
             signature = signature
         ).session
 
-        prefsWrapper.userToken.setAndCommit(session.key)
-        prefsWrapper.userName.setAndCommit(session.name)
+        prefsWrapper.userToken.set(session.key)
+        prefsWrapper.userName.set(session.name)
+    }
+
+    override suspend fun logout() {
+        prefsWrapper.userName.delete()
+        prefsWrapper.userToken.delete()
     }
 }
