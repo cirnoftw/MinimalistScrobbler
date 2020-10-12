@@ -4,6 +4,11 @@ import kotlinx.serialization.ExperimentalSerializationApi
 
 @ExperimentalSerializationApi
 val appModules = listOf(
+    appModule,
+    androidModule,
     viewModels,
-    network
+    navigation,
+    network,
+    gateways,
+    interactors
 )

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/usernameInputView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="username"
+        android:inputType="textNoSuggestions"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintStart_toStartOf="@id/guideStart"
+        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/passwordInputView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintStart_toStartOf="@id/guideStart"
+        app:layout_constraintTop_toBottomOf="@id/usernameInputView" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/loginButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintStart_toStartOf="@id/guideStart"
+        app:layout_constraintTop_toBottomOf="@id/passwordInputView" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tokenView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guideEnd"
+        app:layout_constraintStart_toStartOf="@id/guideStart"
+        tools:text="token" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="16dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

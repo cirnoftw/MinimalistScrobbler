@@ -1,3 +1,12 @@
 package io.hwls.data.network.model.response
 
-data class TokenResponse(val token: String)
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class TokenResponse(val session: Session) {
+    @Serializable
+    data class Session(
+        val name: String,
+        val key: String
+    )
+}
