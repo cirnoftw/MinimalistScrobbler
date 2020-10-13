@@ -5,13 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import io.hwls.android.common.navigation.FlowNavigationViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 abstract class BaseFragment : Fragment() {
     private val flowParent
         get() = this as? FlowFragment ?: getParent(this)
 
-    protected val router
-        get() = flowParent?.navigation?.router
+    val navigation: FlowNavigationViewModel by sharedViewModel(owner = { flowParent.viewModelOwner })
+
+    protected val router by lazy { navigation.router }
 
     abstract val layoutRes: Int
 
@@ -22,13 +25,14 @@ abstract class BaseFragment : Fragment() {
     ): View = inflater.inflate(layoutRes, container, false)
 
     open fun onBackPressed() {
-        router?.exit()
+        router.exit()
     }
 
-    private fun getParent(fragment: Fragment): FlowFragment? {
+    private fun getParent(fragment: Fragment): FlowFragment {
         return when {
             fragment is FlowFragment -> fragment
-            fragment.parentFragment == null -> null
+            fragment.parentFragment == null ->
+                throw IllegalStateException("Fragment must have FlowFragment or Activity parent")
             else -> getParent(fragment.requireParentFragment())
         }
     }

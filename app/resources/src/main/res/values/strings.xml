@@ -11,5 +11,13 @@
     <string name="btn_login">Log in</string>
     <string name="btn_logout">Log out</string>
 
+    <string name="scrobbling_header_container">Scrobbling</string>
+    <string name="scrobbling_enabled">Enabled</string>
+    <string name="scrobbling_send_nowplaying">Send now playing</string>
+    <string name="scrobble_point">Scrobble point</string>
+    <string name="scrobble_point_percent">%1$d%% of the track</string>
+    <string name="scrobble_enable_short">Send short scrobbles</string>
+    <string name="scrobble_enable_short_subtitle">Send scrobbles shorter than 30s</string>
+
     <string name="validator_error_empty">Please fill in required fields</string>
 </resources>

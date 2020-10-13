@@ -1,13 +1,15 @@
 package io.hwls.android.common.extension
 
+import android.widget.CheckBox
 import android.widget.ImageView
-import net.cachapa.expandablelayout.util.FastOutSlowInInterpolator
 
-fun ImageView.toggleRotate() {
-    animate()
-        .setStartDelay(0)
-        .rotation(if (rotation == 0f) 90f else 0f)
-        .setDuration(200)
-        .setInterpolator(FastOutSlowInInterpolator())
-        .start()
+fun ImageView.expandArrow(fraction: Float) {
+    rotation = 90f * fraction
 }
+
+inline fun CheckBox.protectedClickListener(crossinline listener: (CheckBox) -> Unit) =
+    setOnClickListener {
+        it as CheckBox
+        it.isChecked = !it.isChecked
+        listener(it)
+    }

@@ -9,6 +9,10 @@ import kotlinx.coroutines.flow.combine
 
 private const val KEY_USER_NAME = "user_name"
 private const val KEY_USER_TOKEN = "user_token"
+private const val KEY_SCROBBLE = "scrobble"
+private const val KEY_NOWPLAYING = "nowplaying"
+private const val KEY_SCROBBLE_POINT = "scrobble_point"
+private const val KEY_SEND_SHORT = "send_short"
 
 @ExperimentalCoroutinesApi
 class PrefsWrapper(private val prefs: FlowSharedPreferences) {
@@ -24,4 +28,16 @@ class PrefsWrapper(private val prefs: FlowSharedPreferences) {
                 LoginState(username, token)
             else null
         }
+
+    val scrobble: Preference<Boolean>
+        get() = prefs.getBoolean(KEY_SCROBBLE)
+
+    val sendNowPlaying: Preference<Boolean>
+        get() = prefs.getBoolean(KEY_NOWPLAYING)
+
+    val scrobblePoint: Preference<Int>
+        get() = prefs.getInt(KEY_SCROBBLE_POINT, 50)
+
+    val sendShortEnabled: Preference<Boolean>
+        get() = prefs.getBoolean(KEY_SEND_SHORT)
 }

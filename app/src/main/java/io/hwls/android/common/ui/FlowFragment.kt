@@ -5,19 +5,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import io.hwls.android.R
 import io.hwls.android.common.extension.setLaunchScreen
-import io.hwls.android.common.navigation.CommonNavigationViewModel
 import org.koin.androidx.viewmodel.ViewModelOwner
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.android.support.SupportAppNavigator
 import ru.terrakok.cicerone.android.support.SupportAppScreen
 import ru.terrakok.cicerone.commands.Command
 
 abstract class FlowFragment : BaseFragment() {
-    private val viewModelOwner
+    val viewModelOwner
         get() = ViewModelOwner.from(this)
-
-    val navigation: CommonNavigationViewModel by sharedViewModel(owner = { viewModelOwner })
 
     override val layoutRes: Int = R.layout.layout_container
 
@@ -29,7 +25,7 @@ abstract class FlowFragment : BaseFragment() {
     private val navigator: Navigator by lazy {
         object : SupportAppNavigator(requireActivity(), childFragmentManager, R.id.container) {
             override fun activityBack() {
-                router?.finishFlow()
+                router.finishFlow()
             }
 
             override fun setupFragmentTransaction(
@@ -52,7 +48,7 @@ abstract class FlowFragment : BaseFragment() {
     }
 
     override fun onBackPressed() {
-        currentFragment?.onBackPressed() ?: router?.exit()
+        currentFragment?.onBackPressed() ?: router.exit()
     }
 
     override fun onResume() {

@@ -6,7 +6,7 @@ import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.NavigatorHolder
 import ru.terrakok.cicerone.Router
 
-class CommonNavigationViewModel(private val appRouter: Router) : ViewModel() {
+class FlowNavigationViewModel(private val appRouter: Router) : ViewModel() {
     private val flowCicerone: Cicerone<FlowRouter> by lazy {
         Cicerone.create(FlowRouter(appRouter))
     }
